@@ -6,7 +6,7 @@ struct Color red = {.red = 255, .green = 0, .blue = 0};
 struct Color green = {.red = 0, .green = 255, .blue = 0};
 struct Color yellow = {.red = 255, .green = 255, .blue = 0};
 
-#define USE_LED true
+#define USE_LED false
 
 void setUpLed() {
     if (USE_LED) {

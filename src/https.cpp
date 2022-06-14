@@ -11,6 +11,7 @@ const int httpsPort = 443;
 String connectToHttpsServer(const char *host, const char *path) {
     // Use WiFiClientSecure class to create TLS connection
     WiFiClientSecure client;
+    client.setInsecure();
     Serial.print("connecting to ");
     Serial.println(host);
     if (!client.connect(host, httpsPort)) {
@@ -30,17 +31,22 @@ String connectToHttpsServer(const char *host, const char *path) {
 
     client.print(String("GET ") + url + " HTTP/1.1\r\n" +
                  "Host: " + host + "\r\n" +
-                 "User-Agent: BuildFailureDetectorESP8266\r\n" +
-                 "Connection: close\r\n\r\n");
+                 "User-Agent: Greenlight\r\n" +
+                 "Accept: */*\r\n" +
+                 "Connection: keep-alive\r\n\r\n");
 
     Serial.println("request sent");
     while (client.connected()) {
         String line = client.readStringUntil('\n');
+        Serial.println(line);
         if (line == "\r") {
             Serial.println("headers received");
             break;
         }
     }
+    
+    client.readStringUntil('\n');
+    
     String line = client.readStringUntil('\n');
     Serial.println("reply was:");
     Serial.println(line);

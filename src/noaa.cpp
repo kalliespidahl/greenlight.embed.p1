@@ -3,9 +3,8 @@
 #include "noaa.h"
 #include "https.h"
 
-const char* host = "tidesandcurrents.noaa.gov";
-const char* path = "/api/datagetter";
-const char* application = "devinbrown7";
+const char* host = "api.tidesandcurrents.noaa.gov";
+const char* path = "/api/prod/datagetter";
 const char* date = "latest";
 const char* product = "wind";
 const char* units = "english";
@@ -29,12 +28,12 @@ boolean getWindData(int station, struct WindData* data) {
 // Private function definitions
 
 void urlBuilder(int station, char* url) {
-    snprintf(url, 200, "%s?application=%s&date=%s&station=%d&product=%s&units=%s&time_zone=%s&format=%s",
-             path, application, date, station, product, units, time_zone, format);
+    snprintf(url, 200, "%s?date=%s&station=%d&product=%s&units=%s&time_zone=%s&format=%s",
+             path, date, station, product, units, time_zone, format);
 }
 
 boolean parseJson(String windDataString, struct WindData* windData) {
-    StaticJsonBuffer<512> jsonBuffer;
+  StaticJsonBuffer<512> jsonBuffer;
     JsonObject& root = jsonBuffer.parseObject(windDataString);
 
     if (!root.success()) {

@@ -8,8 +8,10 @@
 
 // https://github.com/esp8266/Arduino/issues/2735
 
-const char* ssid = "PT";
-const char* password = "judgedevin";
+//const char* ssid = "PT";
+//const char* password = "judgedevin";
+const char* ssid = "Samson";
+const char* password = "samsonite";
 Ticker wifiReconnect;
 
 // Private function declarations

@@ -5,7 +5,7 @@
 #include "src/https.h"
 #include "src/led.h"
 #include "src/weatherData.h"
-#include "src/wifi.h"
+#include "src/wifi.h" 
 
 // TODO: Use Ticker to schedule the repeated greenlight checks
 
@@ -14,16 +14,16 @@ int ms = 1000;
 // 10 minutes
 int pollDelaySec = 60 * 10;
 
-struct WindParams kalliesWindParams = {
-    .minSpeed = 13.0, .startDir = 180, .endDir = 250};
+// struct WindParams kalliesWindParams = {
+//     .minSpeed = 13.0, .startDir = 180, .endDir = 250};
 
 // GREEN
-// struct WindParams kalliesWindParams = {
-//     .minSpeed = 0.0, .startDir = 0, .endDir = 360};
+struct WindParams kalliesWindParams = {
+    .minSpeed = 0.0, .startDir = 160, .endDir = 270};
 
 // YELLOW
 // struct WindParams kalliesWindParams = {
-//     .minSpeed = 99.0, .startDir = 0, .endDir = 360};
+//     .minSpeed = 9.0, .startDir = 0, .endDir = 360};
 
 void setup() {
     Serial.begin(115200);
