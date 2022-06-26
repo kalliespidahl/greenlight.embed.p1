@@ -14,16 +14,21 @@ int ms = 1000;
 // 10 minutes
 int pollDelaySec = 60 * 10;
 
-// struct WindParams kalliesWindParams = {
-//     .minSpeed = 13.0, .startDir = 180, .endDir = 250};
 
-// GREEN
+// struct WindParams TTWindParams = {
+//     .minSpeed = 17.0, .startDir = 180, .endDir = 270};
+
+// struct WindParams FoilWindParams = {
+//     .minSpeed = 11.0, .startDir = 180, .endDir = 270};
+
+// struct WindParams packWindParams = {
+//     .minSpeed = 9.0, .startDir = 180, .endDir = 270};
+
+
+// kalliesWindParams
 struct WindParams kalliesWindParams = {
-    .minSpeed = 0.0, .startDir = 160, .endDir = 270};
+    .minSpeed = 11.0, .maxSpeed = 16.99, .startDir = 160, .endDir = 270};
 
-// YELLOW
-// struct WindParams kalliesWindParams = {
-//     .minSpeed = 9.0, .startDir = 0, .endDir = 360};
 
 void setup() {
     Serial.begin(115200);

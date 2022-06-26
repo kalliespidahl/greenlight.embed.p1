@@ -11,6 +11,7 @@ struct WindData {
 
 struct WindParams {
     float minSpeed;
+    float maxSpeed;
     float startDir;
     float endDir;
 };

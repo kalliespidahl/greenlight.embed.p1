@@ -26,21 +26,27 @@ void greenlight(WindParams params) {
         Serial.print("gust: ");
         Serial.println(data.gust);
 
+        boolean highWind = data.speed >= params.maxSpeed;
         boolean goodSpeed = data.speed >= params.minSpeed;
         boolean goodDir = data.dir >= params.startDir && data.dir <= params.endDir;
+        //boolean wrongDir = data.dir <= params.startDir && data.dir >= params.endDir;
 
-        if (goodSpeed && goodDir) {
-            // GREEN
-            Serial.println("!! GREEN !!!");
+        if (highWind && goodDir) {
+            // TWINTIP
+            Serial.println("!! TWINTIP !!!");
             setColor(green);
-        } else if (goodSpeed || goodDir) {
-            // YELLOW
-            Serial.println("!! YELLOW !!!");
+        } else if (goodSpeed && goodDir) {
+            // FOIL
+            Serial.println("!! FOIL !!!");
+            setColor(purple);
+        } else if (goodSpeed) {
+            // GOOD BUT WRONG DIRECTION
+            Serial.println("!! GOOD BUT WRONG DIRECTION !!!");
             setColor(yellow);
         } else {
-            // RED
-            Serial.println("!! RED !!!");
-            setColor(red);
+            // GET SHIT DONE
+            Serial.println("!! GET SHIT DONE !!!");
+            //setColor(red);
         }
     } else {
         Serial.print("Failure");

@@ -6,6 +6,8 @@
 extern struct Color red;
 extern struct Color green;
 extern struct Color yellow;
+extern struct Color purple;
+extern struct Color blue;
 
 struct Color {
     int8_t red;

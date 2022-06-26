@@ -4,7 +4,10 @@
 
 struct Color red = {.red = 255, .green = 0, .blue = 0};
 struct Color green = {.red = 0, .green = 255, .blue = 0};
+struct Color purple = {.red = 255, .green = 0, .blue = 255};
 struct Color yellow = {.red = 255, .green = 255, .blue = 0};
+struct Color blue = {.red = 0, .green = 0, .blue = 255};
+
 
 #define USE_LED false
 
